@@ -1,0 +1,53 @@
+!!!
+%html
+  %head
+    %title= t('site.title')
+    = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = favicon_link_tag 'favicon.png', type: 'image/png'
+    = csrf_meta_tags
+
+  %body
+    %nav.navbar.navbar-static-top.navbar-inverse.navbar-collapse{role: "navigation"}
+      .container-fluid
+        .navbar-header
+          %button.navbar-toggle{type: "button", 'data-toggle' => "collapse", 'data-target' => "#navbar-main"}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          = link_to t('site.title'), root_path, html_options = {class: "navbar-brand"}
+
+        .collapse.navbar-collapse#navbar-main
+          %ul.nav.navbar-nav
+            - if can? :manage, User
+              = bootstrap_pill_link_to t('user.title'), users_path
+            - if can? :manage, Gallery
+              = bootstrap_pill_link_to t('gallery.title'), galleries_path
+            - if can? :manage, Issue
+              = bootstrap_pill_link_to t('issue.title'), issues_path
+          - if current_user
+            %ul.nav.navbar-nav.navbar-right
+              %li= link_to "#{current_user.email} (#{current_user.role.translated_name})", user_path(current_user)
+              %li= link_to 'Logout', destroy_user_session_path, method: :delete
+              
+    .container
+      .row
+        - flash.each do |name, msg|
+          %div{class: "alert alert-dismissable #{bootstrap_class_for(name)}"}
+            = msg
+            %button.close{:type => :type, 'data-dismiss' => "alert", 'aria-hidden' => 'true'} &times;
+
+        
+      .row
+        .col-md-12
+          =yield
+
+    .container
+      %footer
+        .footer-content
+          %p.copyright.pull-right
+            &copy; 
+            = Time.now.year
+            Tim auf der Landwehr - 
+            %a{href: "http://taufderl.de"} taufderl.de

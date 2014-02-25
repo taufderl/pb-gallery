@@ -16,7 +16,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -58,10 +58,23 @@ group :production do
   gem 'passenger', '~> 4.0.23'
 end
 
-gem 'paperclip'
+#authentication and permission
 gem 'devise'
-gem 'haml-rails'
+gem 'cancan'
 
+# file uploads
+gem 'paperclip'
+# additionally to AWS 
 gem 'aws-sdk'
 
+# use haml
+gem 'haml-rails'
+
+gem 'jquery-ui-rails'
+gem 'jquery-fileupload-rails'
+
+# creates the gallery
 gem 'hermitage'
+
+# ransack for easy object search and filtering
+gem 'ransack', '~> 1.0.0'

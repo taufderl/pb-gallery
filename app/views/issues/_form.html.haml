@@ -1,0 +1,18 @@
+.col-md-6
+  = form_for @issue do |f|
+    - if @issue.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@issue.errors.count, "error")} prohibited this issue from being saved:"
+        %ul
+          - @issue.errors.full_messages.each do |msg|
+            %li= msg
+  
+    .form-group
+      = f.label :name
+      = f.text_field :name, class: 'form-control'
+    .form-group
+      = f.label :text
+      = f.text_area :text, class: 'form-control', rows: 6
+    .form-group
+      = link_to t('links.cancel'), issues_path, class: 'btn-sm btn-primary'
+      = f.submit t('links.save'), class: 'btn-sm btn-default'

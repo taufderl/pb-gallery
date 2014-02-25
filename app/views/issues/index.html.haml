@@ -1,0 +1,8 @@
+%h1= t('issue.title')
+%h5= t('issue.description')
+
+.issues-menu
+  = link_to t('issue.new_issue'), new_issue_path, class: 'btn-sm btn-primary'
+
+.issues-table
+  = render :partial => 'table'

@@ -20,4 +20,41 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  site:
+    title: 'Party-Belm Gallery'
+  issue:
+    title: 'Issues'
+    description: 'Here you can report issues and see the current status of those.'
+    new_issue: 'Report new issue'
+    edit_issue: 'Edit issue'
+    name: 'name'
+    text: 'text'
+    user: 'written by'
+    date: 'date'
+  user:
+    title: 'Users'
+    new_user: 'New User'
+    email: 'email'
+    first_name: 'first name'
+    name: 'last name'
+    approved: 'approved'
+  gallery:
+    title: 'Galleries'
+  role:
+    admin: 'Admin'
+    'watcher': 'Watcher'
+  image:
+    title: 'title'
+    file: 'file'
+    
+  links:
+    back: 'back'
+    cancel: 'cancel'
+    save: 'save'
+    new: 'new'
+    issue:
+      set_solved: 'mark as solved'
+    
+  admin_mailer:
+    new_user_waiting_for_approval:
+      subject: 'New User waiting for approval'

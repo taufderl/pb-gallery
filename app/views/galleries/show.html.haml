@@ -1,0 +1,6 @@
+%h3= @gallery.name
+%h4= l(@gallery.date)
+
+.gallery
+  = render_gallery_for @gallery.images 
+    

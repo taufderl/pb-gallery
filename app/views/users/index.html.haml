@@ -1,0 +1,10 @@
+%h1= t('user.title')
+%h5= t('user.description')
+
+.users-menu
+  = link_to t('user.new_user'), new_user_path, class: 'btn-sm btn-primary'
+
+.users-table
+  = render :partial => 'table'
+
+

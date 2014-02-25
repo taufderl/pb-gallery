@@ -11,6 +11,10 @@
 // about supported directives.
 //
 //= require jquery
+//= require hermitage
 //= require jquery_ujs
+//= require jquery.ui.all
+//= require jquery-fileupload
 //= require turbolinks
+//= require bootstrap
 //= require_tree .

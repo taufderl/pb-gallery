@@ -1,0 +1,20 @@
+.user-table
+  %table.table.table-bordered.table-condensed.table-hover
+    %tr
+      %th First name
+      %th Name
+      %th Email
+      %th Role
+      %th Approved?
+      %th
+  
+    - @users.each do |user|
+      %tr
+        %td= user.first_name
+        %td= user.name
+        %td= user.email
+        %td= user.role.translated_name
+        %td= user.approved
+        %td
+          = link_to 'Edit', edit_user_path(user), class: 'btn-sm btn-primary'
+          =link_to 'Destroy', user, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn-sm btn-danger'
