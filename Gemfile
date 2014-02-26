@@ -53,6 +53,8 @@ gem 'figaro', '~> 0.7.0'
 group :production do
   # exception notification for email exceptions
   gem 'exception_notification', '~> 4.0.1'
+  
+  gem 'mysql2'
 
   # fcgi for fcgi script running
   gem 'passenger', '~> 4.0.23'
