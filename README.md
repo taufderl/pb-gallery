@@ -4,3 +4,5 @@
 - gallery management for admins (-->paperclip)
 - searchable tables ransack
 - gallery view
+
+- mailer configuration

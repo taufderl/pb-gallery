@@ -15,7 +15,8 @@ class User < ActiveRecord::Base
   
   after_create :send_waiting_for_approval_mail
   def send_waiting_for_approval_mail
-    AdminMailer.new_user_waiting_for_approval(self).deliver
+    #TODO: activate and test!!
+    #AdminMailer.new_user_waiting_for_approval(self).deliver
   end
   
   def role?(role)
@@ -23,6 +24,7 @@ class User < ActiveRecord::Base
       self.role.name.to_s.downcase == role
     else
       false
+    end
   end
   
   # override for approval functionality
