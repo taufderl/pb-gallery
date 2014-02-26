@@ -9,7 +9,7 @@
       %th
   
     - @users.each do |user|
-      %tr{user_row_class(user)}
+      %tr{class: user_row_class(user)}
         %td= user.first_name
         %td= user.name
         %td= user.email
@@ -19,4 +19,5 @@
           .btn-group<
             = link_to t('links.user.profile'), user_path(user), class: 'btn btn-sm btn-default'
             = link_to t('links.edit'), edit_user_path(user), class: 'btn btn-sm btn-primary'
+            = link_to t('links.user.set_approved'), user_path(:id => user.id, :user => {:approved => 1 }), {:method => :patch, class: 'btn btn-sm btn-success'} unless user.approved?
             = link_to t('links.delete'), user, :method => :delete, :data => { :confirm => t('links.confirmation') }, class: 'btn btn-sm btn-danger'

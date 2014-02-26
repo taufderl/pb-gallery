@@ -29,6 +29,10 @@ class User < ActiveRecord::Base
     "#{self.full_name} <#{self.email}>"
   end
   
+  def admin?
+    return self.role? 'admin'
+  end
+  
   def role?(role)
     if self.role
       self.role.name.to_s.downcase == role
