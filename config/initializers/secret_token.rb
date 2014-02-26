@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-PbGallery::Application.config.secret_key_base = '71a5dff731a39dce97d0855da612ab76b49136ce2a9f303029733e8f0746548ebd5d651a717fee8f7b4b922535de0d34e3edf358320455de4738236e26a129c7'
+PbGallery::Application.config.secret_key_base = ENV['SECRET_TOKEN']
