@@ -14,4 +14,5 @@
         %td= link_to gallery.name, gallery_path(gallery)
         %td= gallery.date
         %td= gallery.owner.full_name
-        %td= gallery.images.count 
+        %td
+          %span.badge= gallery.images.count 

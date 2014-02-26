@@ -1,6 +1,6 @@
 %h3= @gallery.name
 %h4= l(@gallery.date)
 
-.gallery
-  = render_gallery_for @gallery.images 
+.gallery.col-md-10.col-md-offset-1
+  = render_gallery_for @gallery.images, title: 'name', each_slice: 6
     

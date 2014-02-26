@@ -12,8 +12,10 @@
       %td= gallery.name
       %td= gallery.date
       %td= gallery.owner.full_name
-      %td= gallery.images.count
-      %td= gallery.permitted_users.count 
+      %td
+        %span.badge= gallery.images.count
+      %td
+        %span.badge= gallery.permitted_users.count 
       %td
         .btn-group< 
           = link_to t('links.show'), gallery, class: 'btn btn-sm btn-default'

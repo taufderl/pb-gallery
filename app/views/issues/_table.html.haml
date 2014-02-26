@@ -15,7 +15,11 @@
       %td
         .no-wrap= l(issue.date)
       %td= issue.user.first_name
-      %td= issue.status
+      %td
+        - if issue.solved?
+          %span.label.label-success= issue.status
+        - else
+          %span.label.label-default= issue.status
       %td
         .btn-group<
           =link_to t('links.edit'), edit_issue_path(issue), class: 'btn btn-sm btn-primary' unless issue.solved?

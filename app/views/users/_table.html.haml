@@ -9,7 +9,7 @@
       %th
   
     - @users.each do |user|
-      %tr
+      %tr{user_row_class(user)}
         %td= user.first_name
         %td= user.name
         %td= user.email

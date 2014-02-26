@@ -4,6 +4,12 @@ class Image < ActiveRecord::Base
   has_attached_file :file, :styles => { :full => "1024x1024>", :thumb => "200x200>" }
   validates_attachment_content_type :file, :content_type => /\Aimage\/.*\Z/
   
+  
+  
+  def name
+    'dfdsfgd kjfg fdfj'
+  end
+  
   def to_jq_upload
     {
       "name" => read_attribute(:upload_file_name),
