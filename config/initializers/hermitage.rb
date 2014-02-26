@@ -8,16 +8,12 @@ Hermitage.configure :default do
   thumbnail -> item { item.file.url(:thumb) }
   title nil
   list_tag :div
-  item_tag :p
-  list_class 'thumbnails'
-  item_class 'col-md-3'
+  item_tag :div
+  list_class 'gallery-thumbnails-div'
+  item_class 'gallery-thumbnail-div'
   link_class 'thumbnail'
   image_class nil
   each_slice nil
-  
-  # my manual settings
-  looped false
-  preloadNeighbours true
 end
 
 # Also you can create your own configs that will be merged with default config to overwrite default options.
