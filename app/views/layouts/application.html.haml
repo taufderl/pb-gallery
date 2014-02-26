@@ -24,7 +24,7 @@
               = bootstrap_pill_link_to t('user.title'), users_path
               = bootstrap_pill_link_to t('gallery.title'), galleries_path
               = bootstrap_pill_link_to t('issue.title'), issues_path
-            - elsif can? :read, Gallery
+            - elsif current_user
               = bootstrap_pill_link_to t('gallery.title'), galleries_path
             
           - if current_user
