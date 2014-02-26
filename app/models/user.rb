@@ -19,7 +19,10 @@ class User < ActiveRecord::Base
   end
   
   def role?(role)
-    return self.role.name.to_s.downcase == role
+    if self.role
+      self.role.name.to_s.downcase == role
+    else
+      false
   end
   
   # override for approval functionality
