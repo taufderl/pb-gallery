@@ -8,17 +8,17 @@
     %th
    
   - @issues.each do |issue|
-    - if issue.solved?
-      %tr.success
-    - else
-      %tr
-    %td= issue.name
-    %td= issue.text
-    %td= l(issue.date)
-    %td= issue.user.first_name
-    %td= issue.status
-    %td
-      = link_to t('links.edit'), edit_issue_path(issue), class: 'btn-sm btn-primary'
-      = link_to t('links.issues.set_solved'), issue_path(:id => issue.id, :issue => {:status => :solved }), {:method => :patch, class: 'btn-sm btn-success'}
-      = link_to t('links.destroy'), issue, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn-sm btn-danger'
-      
+    
+    %tr{class: row_class(issue)}
+      %td= issue.name
+      %td= issue.text
+      %td
+        .no-wrap= l(issue.date)
+      %td= issue.user.first_name
+      %td= issue.status
+      %td
+        .btn-group<
+          =link_to t('links.edit'), edit_issue_path(issue), class: 'btn btn-sm btn-primary' unless issue.solved?
+          =link_to t('links.issue.set_solved'), issue_path(:id => issue.id, :issue => {:status => :solved }), {:method => :patch, class: 'btn btn-sm btn-success'} unless issue.solved?
+          =link_to t('links.delete'), issue, :method => :delete, :data => { :confirm => t('links.confirmation') }, class: 'btn btn-sm btn-danger'
+            

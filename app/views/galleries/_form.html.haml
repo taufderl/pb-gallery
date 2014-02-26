@@ -1,16 +1,18 @@
-= form_for @gallery do |f|
-  - if @gallery.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@gallery.errors.count, "error")} prohibited this gallery from being saved:"
-      %ul
-        - @gallery.errors.full_messages.each do |msg|
-          %li= msg
-
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :date
-    = f.date_field :date
-  .actions
-    = f.submit 'Save'
+.gallery-form.col-md-3
+  = form_for @gallery do |f|
+    - if @gallery.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@gallery.errors.count, "error")} prohibited this gallery from being saved:"
+        %ul
+          - @gallery.errors.full_messages.each do |msg|
+            %li= msg
+  
+    .form-group
+      = f.label :name
+      = f.text_field :name, class: 'form-control'
+    .form-group
+      = f.label :date
+      = f.date_field :date, class: 'form-control'
+    .form-group
+      = link_to t('links.cancel'), galleries_path, class: 'btn btn-default'
+      = f.submit t('links.save'), class: 'btn btn-primary'

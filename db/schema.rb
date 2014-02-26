@@ -11,14 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140225205109) do
+ActiveRecord::Schema.define(version: 20140226182251) do
 
   create_table "galleries", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.date     "date"
+    t.integer  "owner_id"
   end
+
+  add_index "galleries", ["owner_id"], name: "index_galleries_on_owner_id"
+
+  create_table "gallery_permissions", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "gallery_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "gallery_permissions", ["gallery_id"], name: "index_gallery_permissions_on_gallery_id"
+  add_index "gallery_permissions", ["user_id"], name: "index_gallery_permissions_on_user_id"
 
   create_table "images", force: true do |t|
     t.string   "title"
@@ -39,7 +52,7 @@ ActiveRecord::Schema.define(version: 20140225205109) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "status"
-    t.date     "date"
+    t.datetime "date"
     t.integer  "user_id"
   end
 

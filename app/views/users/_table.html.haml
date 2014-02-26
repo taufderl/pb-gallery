@@ -16,5 +16,7 @@
         %td= user.role.translated_name
         %td= user.approved
         %td
-          = link_to 'Edit', edit_user_path(user), class: 'btn-sm btn-primary'
-          =link_to 'Destroy', user, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn-sm btn-danger'
+          .btn-group<
+            = link_to t('links.user.profile'), user_path(user), class: 'btn btn-sm btn-default'
+            = link_to t('links.edit'), edit_user_path(user), class: 'btn btn-sm btn-primary'
+            = link_to t('links.delete'), user, :method => :delete, :data => { :confirm => t('links.confirmation') }, class: 'btn btn-sm btn-danger'

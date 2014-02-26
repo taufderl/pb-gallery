@@ -5,6 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   belongs_to :role
   has_many :roles
+  has_and_belongs_to_many :permitted_galleries, class_name: Gallery, join_table: :gallery_permissions
+  has_many :galleries, foreign_key: :owner_id
+  
   after_initialize :init_role
   def init_role
     self.role ||= Role.find_by(name: :watcher)
@@ -17,6 +20,13 @@ class User < ActiveRecord::Base
   def send_waiting_for_approval_mail
     #TODO: activate and test!!
     #AdminMailer.new_user_waiting_for_approval(self).deliver
+  end
+  
+  def full_name
+    "#{self.first_name} #{self.name}"
+  end
+  def to_s
+    "#{self.full_name} <#{self.email}>"
   end
   
   def role?(role)

@@ -20,15 +20,19 @@
 
         .collapse.navbar-collapse#navbar-main
           %ul.nav.navbar-nav
-            - if can? :manage, User
+            - if admin?
               = bootstrap_pill_link_to t('user.title'), users_path
-            - if can? :manage, Gallery
               = bootstrap_pill_link_to t('gallery.title'), galleries_path
-            - if can? :manage, Issue
               = bootstrap_pill_link_to t('issue.title'), issues_path
+            - elsif can? :read, Gallery
+              = bootstrap_pill_link_to t('gallery.title'), galleries_path
+            
           - if current_user
             %ul.nav.navbar-nav.navbar-right
-              %li= link_to "#{current_user.email} (#{current_user.role.translated_name})", user_path(current_user)
+              - if admin?
+                %li= link_to "#{current_user.email} (#{current_user.role.translated_name})", user_path(current_user)
+              - else
+                %li= link_to "#{current_user.email}", user_path(current_user)
               %li= link_to 'Logout', destroy_user_session_path, method: :delete
               
     .container
@@ -38,7 +42,6 @@
             = msg
             %button.close{:type => :type, 'data-dismiss' => "alert", 'aria-hidden' => 'true'} &times;
 
-        
       .row
         .col-md-12
           =yield

@@ -1,0 +1,10 @@
+%h1= t('gallery.title')
+
+.row
+  .col-md-10
+    %h5= t('gallery.manage.description')
+  .col-md-2  
+    = link_to t('gallery.new_gallery'), new_gallery_path, class: 'btn btn-primary'
+
+.gallery-table
+  = render :partial => 'table'

@@ -12,4 +12,18 @@
  *= require jquery.ui.all
  *= require_tree .
  */
+
 @import "bootstrap";
+.btn-group { 
+  white-space: nowrap;
+  .btn {
+    float: none;
+    display: inline-block;
+  }
+}
+
+.no-wrap { 
+  white-space: nowrap;
+  float: none;
+  display: inline-block;
+}

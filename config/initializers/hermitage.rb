@@ -14,6 +14,10 @@ Hermitage.configure :default do
   link_class 'thumbnail'
   image_class nil
   each_slice nil
+  
+  # my manual settings
+  looped false
+  preloadNeighbours true
 end
 
 # Also you can create your own configs that will be merged with default config to overwrite default options.

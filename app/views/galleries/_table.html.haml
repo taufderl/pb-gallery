@@ -1,0 +1,21 @@
+%table.table.table-bordered.table-condensed.table-hover
+  %tr
+    %th= t('gallery.name')
+    %th= t('gallery.date')
+    %th= t('gallery.owner')
+    %th= t('gallery.images')
+    %th= t('gallery.permitted_users')
+    %th
+
+  - @galleries.each do |gallery|
+    %tr
+      %td= gallery.name
+      %td= gallery.date
+      %td= gallery.owner.full_name
+      %td= gallery.images.count
+      %td= gallery.permitted_users.count 
+      %td
+        .btn-group< 
+          = link_to t('links.show'), gallery, class: 'btn btn-sm btn-default'
+          = link_to t('links.edit'), edit_gallery_path(gallery), class: 'btn btn-sm btn-primary'
+          = link_to t('links.delete'), gallery, :method => :delete, :data => { :confirm => t('links.confirmation') }, class: 'btn btn-sm btn-danger'

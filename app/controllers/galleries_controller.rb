@@ -5,7 +5,20 @@ class GalleriesController < ApplicationController
   # GET /galleries
   # GET /galleries.json
   def index
-    @galleries = Gallery.all
+    if admin?
+      render action: :manage
+    end
+    # allow user only to see permitted galleries
+    @galleries = current_user.permitted_galleries
+  end
+  
+  # manage does not have a route -> is rendered for admins instead of index
+  def manage
+    if admin?
+      render action: :manage
+    else
+    
+    end
   end
 
   # GET /galleries/1

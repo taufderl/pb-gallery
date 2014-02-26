@@ -1,20 +1,17 @@
-%h1 Listing galleries
+%h1= t('gallery.title')
+%h5= t('gallery.index.description')
 
-%table.table.table-bordered.table-condensed.table-hover
-  %tr
-    %th= t('gallery.name')
-    %th= t('gallery.images')
-    %th
-
-  - @galleries.each do |gallery|
+.gallery-table
+  %table.table.table-bordered.table-condensed.table-hover
     %tr
-      %td= gallery.name
-      %td= gallery.images.count
-      %td 
-        = link_to 'Show', gallery
-        = link_to 'Edit', edit_gallery_path(gallery)
-        = link_to 'Destroy', gallery, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Gallery', new_gallery_path
+      %th= t('gallery.name')
+      %th= t('gallery.date')
+      %th= t('gallery.owner')
+      %th= t('gallery.images')
+  
+    - @galleries.each do |gallery|
+      %tr
+        %td= link_to gallery.name, gallery_path(gallery)
+        %td= gallery.date
+        %td= gallery.owner.full_name
+        %td= gallery.images.count 

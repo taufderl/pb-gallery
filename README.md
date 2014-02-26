@@ -6,3 +6,4 @@
 - gallery view
 
 - mailer configuration
+- menus with hover dropdown
