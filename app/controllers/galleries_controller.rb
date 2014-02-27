@@ -34,16 +34,23 @@ class GalleriesController < ApplicationController
   # GET /galleries/1/edit
   def edit
     @upload = Image.new
+    if params[:tab] == 'images'
+      render 'edit_images'
+    elsif params[:tab] == 'permissions'
+      render 'edit_permissions'
+    end
+    # else render edit
   end
 
   # POST /galleries
   # POST /galleries.json
   def create
     @gallery = Gallery.new(gallery_params)
+    @gallery.owner = current_user
 
     respond_to do |format|
       if @gallery.save
-        format.html { redirect_to @gallery, notice: 'Gallery was successfully created.' }
+        format.html { redirect_to edit_gallery_path(@gallery, tab: :images), notice: t('gallery.created') }
         format.json { render action: 'show', status: :created, location: @gallery }
       else
         format.html { render action: 'new' }
@@ -57,7 +64,7 @@ class GalleriesController < ApplicationController
   def update
     respond_to do |format|
       if @gallery.update(gallery_params)
-        format.html { redirect_to @gallery, notice: 'Gallery was successfully updated.' }
+        format.html { redirect_to @gallery, notice: t('gallery.updated') }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

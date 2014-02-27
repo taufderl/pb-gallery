@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable
   belongs_to :role
   has_many :roles
   has_and_belongs_to_many :permitted_galleries, class_name: Gallery, join_table: :gallery_permissions
@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   after_initialize :init_role
   def init_role
     self.role ||= Role.find_by(name: :watcher)
+    self.approved = true                        #TODO: do not require approval, make to general setting in app?
   end
   
   validates :first_name, presence: true

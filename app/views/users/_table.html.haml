@@ -5,7 +5,6 @@
       %th Name
       %th Email
       %th Role
-      %th Approved?
       %th
   
     - @users.each do |user|
@@ -14,10 +13,9 @@
         %td= user.name
         %td= user.email
         %td= user.role.translated_name
-        %td= user.approved
         %td
           .btn-group<
             = link_to t('links.user.profile'), user_path(user), class: 'btn btn-sm btn-default'
             = link_to t('links.edit'), edit_user_path(user), class: 'btn btn-sm btn-primary'
-            = link_to t('links.user.set_approved'), user_path(:id => user.id, :user => {:approved => 1 }), {:method => :patch, class: 'btn btn-sm btn-success'} unless user.approved?
+            = link_to t('links.user.set_approved'), user_path(:id => user.id, :user => {:approved => 'true' }), {:method => :patch, class: 'btn btn-sm btn-success'} unless user.approved?
             = link_to t('links.delete'), user, :method => :delete, :data => { :confirm => t('links.confirmation') }, class: 'btn btn-sm btn-danger'

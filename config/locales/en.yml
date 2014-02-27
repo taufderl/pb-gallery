@@ -46,14 +46,19 @@ en:
     first_name: first name
     name: last name
     approved: approved
+    created: User was successfully created.
+    updated: User was successfully updated.
   gallery:
     title: Galleries
     index:
       description: Please select one of the galleries.
     manage:
       description: Here you can manage the galleries.
+    edit: Edit Gallery #
     images: images
     permitted_users: users
+    created: Gallery was successfully created.
+    updated: Gallery was successfully updated.
   role:
     admin: Admin
     watcher: Watcher
@@ -70,6 +75,7 @@ en:
     save: save
     new: new
     sign_in: login
+    back_to_sign_in: back to login page
     sign_up: register
     forgot_password: Forgot your password?
     delete: delete

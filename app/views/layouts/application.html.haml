@@ -21,6 +21,7 @@
         .collapse.navbar-collapse#navbar-main
           %ul.nav.navbar-nav
             - if admin?
+              = bootstrap_pill_link_to t('site.dashboard.title'), root_path
               = bootstrap_pill_link_to t('user.title'), users_path
               = bootstrap_pill_link_to t('gallery.title'), galleries_path
               = bootstrap_pill_link_to t('issue.title'), issues_path
