@@ -1,19 +1,20 @@
 PbGallery::Application.routes.draw do
   
   get "welcome/index"
+  root 'welcome#index'
+  
+  
   resources :issues
 
-  devise_for :users, path: '', path_names: {sign_in: 'login', sign_out: 'logout'}
+  devise_for :users, path: '', path_names: {sign_in: 'login', sign_out: 'logout', registration: 'registration'}
   
   resources :users
 
   resources :galleries
-  get 'upload' => 'galleries#upload'
-  
-  
+   
   resources :images
   
-  root 'welcome#index'
+ 
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -73,6 +73,7 @@ en:
     back: back
     cancel: cancel
     save: save
+    update: update
     new: new
     sign_in: login
     back_to_sign_in: back to login page
@@ -86,7 +87,19 @@ en:
       set_solved: mark as solved
     user:
       profile: profile
-    
+  
+  devise:
+    resend_confirmation_instructions: Resend confirmation instructions
+    edit_user: Edit account
+    edit_password_hint: leave blank if you don't want to change it
+    waiting_for_confirmation: Currently waiting confirmation for
+    password_needed_hint: we need your current password to confirm your changes
+    cancel_account: Cancel my account
+    change_password: Change your password
+    forgot_password: Forgot your password?
+    send_password_reset_instructions: Send me reset password instructions
+    resend_unlock_instructions: Resend unlock instructions
+  
   admin_mailer:
     new_user_waiting_for_approval:
       subject: New User waiting for approval
