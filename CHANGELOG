@@ -8,10 +8,12 @@
 - added permissions overview and preview to gallery edit page
 - added gallery_permission controller to let users request permissions 
 
-TODO: 
+TODO:
+- images nested route in gallery
 - PICTURE UPLOAD!
 - translations
 - gallery management for admins (-->paperclip)
 - menus with hover dropdown
+- use ReCaptcha for signup
 
 

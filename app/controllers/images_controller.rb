@@ -1,11 +1,12 @@
 class ImagesController < ApplicationController
   load_and_authorize_resource
+  before_action :set_gallery
   before_action :set_image, only: [:show, :edit, :update, :destroy]
 
   # GET /images
   # GET /images.json
   def index
-    @images = Image.all
+    @images = @gallery.images
   end
 
   # GET /images/1
@@ -15,7 +16,7 @@ class ImagesController < ApplicationController
 
   # GET /images/new
   def new
-    @image = Image.new
+    @image = @gallery.images.build
   end
 
   # GET /images/1/edit
@@ -25,16 +26,12 @@ class ImagesController < ApplicationController
   # POST /images
   # POST /images.json
   def create
-    @image = Image.new(image_params)
+    @image = @gallery.images.build(image_params)
 
     respond_to do |format|
       if @image.save
-        format.html {
-          render :json => [@image.to_jq_upload].to_json,
-          :content_type => 'text/html',
-          :layout => false
-        }
-        format.json { render json: {files: [@image.to_jq_upload]}, status: :created, location: @image }
+        format.html { render action: 'show' }
+        format.json { render action: "show" }
       else
         format.html { render action: "new" }
         format.json { render json: @image.errors, status: :unprocessable_entity }
@@ -61,19 +58,23 @@ class ImagesController < ApplicationController
   def destroy
     @image.destroy
     respond_to do |format|
-      format.html { redirect_to images_url }
+      format.html { redirect_to gallery_images_url(@gallery) }
       format.json { head :no_content }
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def set_gallery
+      @gallery = Gallery.find(params[:gallery_id])
+    end
+    
     def set_image
-      @image = Image.find(params[:id])
+      @image = @gallery.images.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def image_params
-      params.require(:image).permit(:file, :gallery_id)
+      params.require(:image).permit(:file, :gallery_id, :gallery)
     end
 end

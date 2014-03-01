@@ -1,34 +1,30 @@
 = render partial: "edit_tabs"
 
-= form_for Image.new, :html => { :multipart => true, :id => "fileupload"  } do |f|
-  / The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload
+= form_for [@gallery, @image], :html => { :multipart => true, :id => "fileupload"  } do |f|
   .row.fileupload-buttonbar
-    .col-md-7
-      / The fileinput-button span is used to style the file input field as button
+    .col-md-8
       %span.btn.btn-success.fileinput-button
-        %i.icon-plus.icon-white
+        %i.glyphicon.glyphicon-plus
         %span Add files...
         = f.file_field :file
       %button.btn.btn-primary.start{:type => "submit"}
-        %i.icon-upload.icon-white
+        %i.glyphicon.glyphicon-upload
         %span Start upload
       %button.btn.btn-warning.cancel{:type => "reset"}
-        %i.icon-ban-circle.icon-white
+        %i.glyphicon.glyphicon-ban-circle
         %span Cancel upload
       %button.btn.btn-danger.delete{:type => "button"}
-        %i.icon-trash.icon-white
+        %i.glyphicon.glyphicon-trash
         %span Delete
       %input.toggle{:type => "checkbox"}
-    .col-md-5
-      // The global progress bar
-      .progress.progress-success.progress-striped.active.fade
-        .bar{:style => "width:0%;"}
-  // The loading indicator is shown during image processing
-  .fileupload-loading
-  %br
-  // The table listing the files available for upload/download
-  %table.table.table-striped
-    %tbody.files{"data-target" => "#modal-gallery", "data-toggle" => "modal-gallery"}
+      %span.fileupload-process
+      
+    .col-md-4.fileupload-progress.fade
+      .progress.progress-striped.active{role: 'progressbar', 'aria-valuemin' => '0', 'aria-valuemax' => '100'}
+        .progress-bar.progress-bar-success{:style => "width:0%;"} %span.sr-only
+      .progress-extended &nbsp;
+  %table.table.table-striped{role: 'presentation'}
+    %tbody.files
       
 :javascript
   var fileUploadErrors = {
@@ -79,7 +75,6 @@
   {% if (file.error) { %}
   <td></td>
   <td class="name"><span>{%=file.name%}</span></td>
-  <td class="size"><span>{%=o.formatFileSize(file.size)%}</span></td>
   <td class="error" colspan="2"><span class="label label-important">{%=locale.fileupload.error%}</span> {%=locale.fileupload.errors[file.error] || file.error%}</td>
   {% } else { %}
   <td class="preview">{% if (file.thumbnail_url) { %}
@@ -108,17 +103,14 @@
 
   // Load existing files:
   $.getJSON($('#fileupload').prop('action'), function (files) {
-  var fu = $('#fileupload').data('blueimpFileupload'),
-  template;
+  var fu = $('#fileupload').data('blueimpFileupload'), template;
   fu._adjustMaxNumberOfFiles(-files.length);
   console.log(files);
-  template = fu._renderDownload(files)
-  \.appendTo($('#fileupload .files'));
-  \// Force reflow:
-  fu._reflow = fu._transition && template.length &&
-  template[0].offsetWidth;
+  template = fu._renderDownload(files).appendTo($('#fileupload .files'));
+
+  // Force reflow:
+  fu._reflow = fu._transition && template.length && template[0].offsetWidth;
   template.addClass('in');
   $('#loading').remove();
   });
-  
   });

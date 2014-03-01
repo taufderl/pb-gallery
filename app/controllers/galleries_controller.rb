@@ -29,8 +29,9 @@ class GalleriesController < ApplicationController
   # GET /galleries/1/edit
   def edit
     if params[:tab] == 'images'
-      @upload = Image.new
+      @image = Image.new
       render 'edit_images'
+      #render 'upload'
     elsif params[:tab] == 'permissions'
       render 'edit_permissions'
     elsif params[:tab] == 'preview'

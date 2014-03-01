@@ -10,6 +10,7 @@
 # Ignore the default SQLite database.
 /db/*.sqlite3
 /db/*.sqlite3-journal
+db/seeds.rb
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
@@ -50,3 +51,4 @@ _$*
 /config/application.yml
 /config/database.yml
 /public/assets/*
+/public/assets
