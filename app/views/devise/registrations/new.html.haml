@@ -19,5 +19,5 @@
       = f.label :password_confirmation
       = f.password_field :password_confirmation, class: 'form-control'
     .form-group
-      = link_to t("links.back_to_sign_in"), new_session_path(resource_name), class: 'btn btn-default'
-      = f.submit "Sign up", class: 'btn btn-primary' 
+      = link_to t("links.sign_in"), new_session_path(resource_name), class: 'btn btn-default'
+      = f.submit t('links.sign_up'), class: 'btn btn-primary' 

@@ -1,10 +1,10 @@
 .user-table
   %table.table.table-bordered.table-condensed.table-hover
     %tr
-      %th First name
-      %th Name
-      %th Email
-      %th Role
+      %th= t('user.first_name')
+      %th= t('user.name')
+      %th= t('user.email')
+      %th= t('user.role')
       %th
     %tr.search-row
       = search_form_for @q, class: 'form-inline' do |f|

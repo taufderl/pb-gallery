@@ -9,8 +9,8 @@
       %th
     %tr.search-row
       = search_form_for @q, class: 'form-inline' do |f|
-        %th= f.text_field :name_cont, placeholder: t('user.first_name'), class: 'form-control search-input'
-        %th= f.text_field :date_cont, placeholder: t('user.name'), class: 'form-control search-input'
+        %th= f.text_field :name_cont, placeholder: t('gallery.name'), class: 'form-control search-input'
+        %th= f.text_field :date_cont, placeholder: t('gallery.date'), class: 'form-control search-input'
         %th= f.collection_select :owner_id_eq, User.all, :id, :full_name , {include_blank: t('search.all')}, {class: 'form-control search-input'}
         %th
         %th

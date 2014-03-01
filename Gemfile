@@ -60,6 +60,13 @@ group :production do
   gem 'passenger', '~> 4.0.23'
 end
 
+group :development do
+  # finds missing translations
+  gem 'i18n-tasks'
+  # writes query count to logs
+  gem 'sql_queries_count'
+end
+
 #authentication and permission
 gem 'devise'
 gem 'devise_invitable'
@@ -85,5 +92,5 @@ gem 'ransack', '~> 1.0.0'
 gem 'will_paginate', '~> 3.0'
 gem 'will_paginate-bootstrap'
 
-# finds missing translations
-gem 'i18n-tasks'
+
+gem "recaptcha", :require => "recaptcha/rails"

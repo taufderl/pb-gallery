@@ -19,7 +19,19 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
+de:
+  activerecord:
+    attributes:
+      user:
+        email: E-Mail
+        name: Nachname
+        first_name: Vorname
+        full_name: Name
+        password: Passwort
+        
+  time:
+    formats:
+      default: "%d.%m.%Y"
   site:
     title: Party-Belm Galerie
     welcome:
@@ -27,7 +39,7 @@ en:
       title: Willkommen in Party-Belm's Galerie
     dashboard:
       title: Dashboard
-      description: This is the dashboard, you can find nice information about everything here
+      description: Dies ist das Dashboard. Hier werden Informationen über die Galerien angezeigt.
       
   issue:
     title: Feedback, Bugs und Anregungen
@@ -43,14 +55,20 @@ en:
     description: Hier können die angemeldenten Benutzer verwaltet werden.
     new_user: Neuer Benutzer
     invite: Benutzer einladen
+    profile: Profil
+    edit_account: Profil bearbeiten
     email: E-Mail
+    role: Rolle
     first_name: Vorname
-    name: last Nachname
+    name: Nachname
     approved: bestätigt
     created: Der Benutzer wurde erfolgreich gespeichert.
     updated: Der Benutzer wurde erfolgreich gespeichert.
   gallery:
     title: Galerien
+    name: Name
+    owner: Besitzer
+    date: Datum
     index:
       description: Bitte klicke auf eine der Galerien um die Fotos zu betrachten.
     manage:
@@ -79,6 +97,7 @@ en:
     save: Speichern
     update: Speichern
     new: Anlegen
+    edit_account: Profil bearbeiten
     sign_in: Login
     back_to_sign_in: Zurück zur Login-Seite
     sign_up: Registrieren
@@ -94,10 +113,15 @@ en:
       set_solved: Erledigt
     user:
       profile: Profil
+      
+  search:
+    all: <alle>
+  
   
   devise:
+    remember_me: Speichern
     resend_confirmation_instructions: Link zur Bestätigung erneut senden
-    edit_user: Account bearbeiten
+    edit_user: Profil bearbeiten
     edit_password_hint: Leer lassen um das bestehende Passwort beizubehalten
     waiting_for_confirmation: Warte auf Bestätigung der E-Mail-Adresse
     password_needed_hint: we need your current password to confirm your changes

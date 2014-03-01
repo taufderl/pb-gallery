@@ -30,5 +30,5 @@
       %i= t('devise.password_needed_hint')
       = f.password_field :current_password, class: 'form-control'
     .form-group
-      = link_to "Back", :back, class: 'btn btn-default'
+      = link_to t('links.back'), :back, class: 'btn btn-default'
       = f.submit t('links.update'), class: 'btn btn-primary' 
