@@ -31,7 +31,7 @@ class ImagesController < ApplicationController
     respond_to do |format|
       if @image.save
         format.html { render action: 'show' }
-        format.json { render action: "show" }
+        format.json { render json: @image.jquery_upload_result }
       else
         format.html { render action: "new" }
         format.json { render json: @image.errors, status: :unprocessable_entity }

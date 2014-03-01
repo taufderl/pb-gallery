@@ -6,7 +6,7 @@
       %span.btn.btn-success.fileinput-button
         %i.glyphicon.glyphicon-plus
         %span Add files...
-        = f.file_field :file
+        = f.file_field :file, multiple: true, name: 'image[file]'
       %button.btn.btn-primary.start{:type => "submit"}
         %i.glyphicon.glyphicon-upload
         %span Start upload
@@ -20,10 +20,12 @@
       %span.fileupload-process
       
     .col-md-4.fileupload-progress.fade
-      .progress.progress-striped.active{role: 'progressbar', 'aria-valuemin' => '0', 'aria-valuemax' => '100'}
-        .progress-bar.progress-bar-success{:style => "width:0%;"} %span.sr-only
+      .progress.progress-striped.active
+        .progress-bar.progress-bar-success{:style => "width:0%;"}
+          %span.sr-only
       .progress-extended &nbsp;
-  %table.table.table-striped{role: 'presentation'}
+      
+  %table.table.table-striped
     %tbody.files
       
 :javascript
@@ -40,35 +42,45 @@
 // The template to display files available for upload
 %script#template-upload{:type => "text/x-tmpl"}
   {% for (var i=0, file; file=o.files[i]; i++) { %}
-  <tr class="template-upload fade">
-  <td class="preview"><span class="fade"></span></td>
-  <td class="name"><span>{%=file.name%}</span></td>
-  <td class="size"><span>{%=o.formatFileSize(file.size)%}</span></td>
-  {% if (file.error) { %}
-  <td class="error" colspan="2"><span class="label label-important">{%=locale.fileupload.error%}</span> {%=locale.fileupload.errors[file.error] || file.error%}</td>
-  {% } else if (o.files.valid && !i) { %}
-  <td>
-  <div class="progress progress-success progress-striped active"><div class="bar" style="width:0%;"></div></div>
-  </td>
-  <td class="start">{% if (!o.options.autoUpload) { %}
-  <button class="btn btn-primary">
-  <i class="icon-upload icon-white"></i>
-  <span>{%=locale.fileupload.start%}</span>
-  </button>
-  {% } %}</td>
-  {% } else { %}
-  <td colspan="2"></td>
-  {% } %}
-  <td class="cancel">{% if (!i) { %}
-  <button class="btn btn-warning">
-  <i class="icon-ban-circle icon-white"></i>
-  <span>{%=locale.fileupload.cancel%}</span>
-  </button>
-  {% } %}</td>
-  </tr>
-  {% } %}
+  %tr.template-upload.fade
+    %td.preview
+      %span.preview.fade
+    %td.name
+      %span
+        {%=file.name%}
+    %td.size
+      %span
+        {%=o.formatFileSize(file.size)%}
+        
+    {% if (file.error) { %}
+    %td.error{colspan: 2}
+      %span.label.label-important 
+        {%=locale.fileupload.error%}
+      {%=locale.fileupload.errors[file.error] || file.error%}
+    {% } else if (o.files.valid && !i) { %}
+    %td
+      .progress.progress-success.progress-striped.active
+        .progress-bar.progress-bar-success{style: "width:0%;"}
+    
+    %td.start 
+      {% if (!o.options.autoUpload) { %}
+      %button.btn.btn-primary
+        %i.glyphicon.glyphicon-upload
+        %span
+          {%=locale.fileupload.start%}
+      {% } %}
+    {% } else { %}
+    %td{colspan: 2}
+    {% } %}
+    {% if (!i) { %}
+    %td.cancel
+      %button.btn.btn-warning
+        %i.glyphicon.glyphicon-ban-circle
+        %span {%=locale.fileupload.cancel%}
+      {% } %}
+    {% } %}
   
-// The template to display files available for download
+
 %script#template-download{:type => "text/x-tmpl"}
   {% for (var i=0, file; file=o.files[i]; i++) { %}
   <tr class="template-download fade">
@@ -88,7 +100,7 @@
   {% } %}
   <td class="delete">
   <button class="btn btn-danger" data-type="{%=file.delete_type%}" data-url="{%=file.delete_url%}">
-  <i class="icon-trash icon-white"></i>
+  <i class="glyphicon glyphicon-trash"></i>
   <span>{%=locale.fileupload.destroy%}</span>
   </button>
   <input type="checkbox" name="delete" value="1">
@@ -98,17 +110,15 @@
   
 %script{:charset => "utf-8", :type => "text/javascript"}
   $(function () {
-  // Initialize the jQuery File Upload widget:
+  
   $('#fileupload').fileupload();
 
-  // Load existing files:
   $.getJSON($('#fileupload').prop('action'), function (files) {
   var fu = $('#fileupload').data('blueimpFileupload'), template;
   fu._adjustMaxNumberOfFiles(-files.length);
   console.log(files);
   template = fu._renderDownload(files).appendTo($('#fileupload .files'));
 
-  // Force reflow:
   fu._reflow = fu._transition && template.length && template[0].offsetWidth;
   template.addClass('in');
   $('#loading').remove();

@@ -9,13 +9,14 @@ class Image < ActiveRecord::Base
   end
   
   
-  def to_jq_upload
-    {
-      "name" => read_attribute(:file_file_name),
-      "size" => read_attribute(:file_file_size),
+  def jquery_upload_result
+    {files: [{
+      "name" => self.file_file_name,
+      "size" => self.file_file_size,
       "thumbnail_url" => file.url(:thumb),
-      "delete_url" => Rails.application.routes.url_helpers.image_path(self),
+      "full_url" => file.url(:thumb),
+      "delete_url" => Rails.application.routes.url_helpers.gallery_image_path(self.gallery, self),
       "delete_type" => "DELETE" 
-    }
+    }]}
   end
 end
