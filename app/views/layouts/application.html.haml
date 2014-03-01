@@ -27,6 +27,7 @@
               = bootstrap_pill_link_to t('issue.title'), issues_path
             - elsif current_user
               = bootstrap_pill_link_to t('gallery.title'), galleries_path
+              = bootstrap_pill_link_to t('gallery_permission.new'), gallery_permission_new_path
             
           - if current_user
             %ul.nav.navbar-nav.navbar-right

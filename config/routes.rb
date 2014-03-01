@@ -1,5 +1,7 @@
 PbGallery::Application.routes.draw do
   
+  get "gallery_permission/new"
+  post "gallery_permission/create"
   get "welcome/index"
   root 'welcome#index'
   

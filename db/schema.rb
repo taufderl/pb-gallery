@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140301025150) do
+ActiveRecord::Schema.define(version: 20140301102416) do
 
   create_table "galleries", force: true do |t|
     t.string   "name"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20140301025150) do
     t.string   "key"
   end
 
+  add_index "galleries", ["key"], name: "index_galleries_on_key", unique: true
   add_index "galleries", ["owner_id"], name: "index_galleries_on_owner_id"
 
   create_table "gallery_permissions", force: true do |t|

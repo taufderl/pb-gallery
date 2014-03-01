@@ -1,0 +1,112 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  site:
+    title: Party-Belm Galerie
+    welcome:
+      text_html: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean elit nunc, luctus et cursus nec, dignissim euismod felis. Praesent mollis posuere tellus, sed accumsan purus tincidunt in. Phasellus faucibus neque quis tortor convallis, non aliquet est porta. Vestibulum sagittis elit et erat pellentesque iaculis. Nullam convallis euismod nisi non sagittis. Proin posuere nec leo sed suscipit. Praesent urna leo, varius sit amet nisl id, convallis mollis risus. Quisque quis massa id nunc pellentesque molestie vel ut tortor. Mauris auctor tincidunt ipsum a vehicula. Sed eu ullamcorper dolor. Phasellus aliquam arcu metus, vitae ultrices libero dictum vel. Fusce scelerisque nibh nulla, sed vestibulum ante volutpat ut. Phasellus pellentesque ipsum nisl, vel scelerisque orci elementum non. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam at nisi gravida, gravida risus id, tempus lorem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec porta sapien nulla, id elementum quam auctor non. Nullam nisl arcu, tristique vitae congue vitae, congue sit amet magna. Nunc quis risus et elit fringilla blandit vitae id odio. Sed egestas urna at est feugiat, vel pharetra neque eleifend. Fusce sed vulputate tellus, eget sollicitudin sem. Aliquam egestas lacus in urna sagittis venenatis. Duis hendrerit ligula tincidunt, mattis augue dictum, tempus dolor. Morbi convallis neque at egestas imperdiet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut orci massa, luctus ut nisl at, ultrices laoreet nisl. Suspendisse sed ante id metus adipiscing convallis euismod viverra neque. Nullam aliquam felis eget dapibus pulvinar. Nulla facilisi. Vivamus mauris arcu, eleifend sed vulputate non, congue id sapien. Vivamus dignissim tristique porttitor. Vivamus at risus nec eros varius hendrerit nec at nisi. Pellentesque id urna faucibus, adipiscing tortor a, dapibus nulla. Proin accumsan auctor tellus, at dapibus enim accumsan ut. Ut ullamcorper, est non condimentum interdum, nunc lorem molestie purus, aliquet commodo orci odio facilisis quam. Sed egestas congue malesuada. Sed non suscipit massa, sed posuere lacus. Suspendisse pharetra lorem ut dui venenatis tristique. Nullam a rutrum odio,\n non eleifend urna. Donec ut elit erat.
+      title: Willkommen in Party-Belm's Galerie
+    dashboard:
+      title: Dashboard
+      description: This is the dashboard, you can find nice information about everything here
+      
+  issue:
+    title: Feedback, Bugs und Anregungen
+    description: Hier können Bugs und Anregungen für neue Features gemeldet werden.
+    new_issue: Meldung anlegen
+    edit_issue: Meldung bearbeiten
+    name: Name
+    text: Text
+    user: geschrieben von
+    date: Datum
+  user:
+    title: Benutzer
+    description: Hier können die angemeldenten Benutzer verwaltet werden.
+    new_user: Neuer Benutzer
+    invite: Benutzer einladen
+    email: E-Mail
+    first_name: Vorname
+    name: last Nachname
+    approved: bestätigt
+    created: Der Benutzer wurde erfolgreich gespeichert.
+    updated: Der Benutzer wurde erfolgreich gespeichert.
+  gallery:
+    title: Galerien
+    index:
+      description: Bitte klicke auf eine der Galerien um die Fotos zu betrachten.
+    manage:
+      description: Hier können die Galerien verwaltet werden.
+    edit: Barbeiten
+    images: Fotos
+    permitted_users: Benutzer
+    photographer: Fotograf
+    key: Zugangscode
+    created: Die Galerie wurde erfolgreich gespeichert. 
+    updated: Die Galerie wurde erfolgreich gespeichert.
+  role:
+    admin: Administrator
+    watcher: Benutzer
+  image:
+    title: Titel
+    file: Datei
+    
+  session:
+    sign_in: Login
+    sign_out: Logout
+    
+  links:
+    back: Zurück
+    cancel: Abbrechen
+    save: Speichern
+    update: Speichern
+    new: Anlegen
+    sign_in: Login
+    back_to_sign_in: Zurück zur Login-Seite
+    sign_up: Registrieren
+    forgot_password: Passwort vergessen?
+    delete: Löschen
+    confirmation: Bist du sicher?
+    show: Anzeigen
+    edit: Bearbeiten
+    search:
+      filter: Suchen
+      clear_filter: Zurücksetzen
+    issue:
+      set_solved: Erledigt
+    user:
+      profile: Profil
+  
+  devise:
+    resend_confirmation_instructions: Link zur Bestätigung erneut senden
+    edit_user: Account bearbeiten
+    edit_password_hint: Leer lassen um das bestehende Passwort beizubehalten
+    waiting_for_confirmation: Warte auf Bestätigung der E-Mail-Adresse
+    password_needed_hint: we need your current password to confirm your changes
+    cancel_account: Meinen Account löschen
+    change_password: Passwort ändern
+    forgot_password: Passwort vergessen?
+    send_password_reset_instructions: Passwort-Wiederherstellungslink senden
+    resend_unlock_instructions: Unlock-Link erneut senden
+  
+  admin_mailer:
+    new_user_waiting_for_approval:
+      subject: Ein neuer Benutzer wartet auf Bestätigung

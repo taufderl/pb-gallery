@@ -1,0 +1,9 @@
+.gallery-permission-form
+  .col-md-3.col-md-offset-4
+    %h1= t('gallery_permission.new')
+    = form_for :gallery_permission, url: gallery_permission_create_path do |f|
+      .form-group
+        = f.label :key
+        = f.text_field :key, class: 'form-control'
+      .form-group
+        = f.submit ('gallery_permission.send'), class: 'btn btn-primary'

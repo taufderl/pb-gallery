@@ -1,0 +1,2 @@
+module GalleryPermissionHelper
+end

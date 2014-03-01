@@ -64,7 +64,7 @@ class GalleriesController < ApplicationController
   def update
     respond_to do |format|
       if @gallery.update(gallery_params)
-        format.html { redirect_to @gallery, notice: t('gallery.updated') }
+        format.html { redirect_to edit_gallery_path(@gallery), notice: t('gallery.updated') }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -91,6 +91,6 @@ class GalleriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def gallery_params
-      params.require(:gallery).permit(:name, :date)
+      params.require(:gallery).permit(:name, :date, :photographer, :key)
     end
 end

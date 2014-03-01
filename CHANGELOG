@@ -5,4 +5,13 @@
 - added devise_invitation to let people invite users by email address
 - added user profile page
 - added permission key and photographer to gallery
-- added permissions overview and preview to gallery edit page 
+- added permissions overview and preview to gallery edit page
+- added gallery_permission controller to let users request permissions 
+
+TODO: 
+- PICTURE UPLOAD!
+- translations
+- gallery management for admins (-->paperclip)
+- menus with hover dropdown
+
+
