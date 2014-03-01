@@ -28,13 +28,18 @@ class GalleriesController < ApplicationController
 
   # GET /galleries/1/edit
   def edit
-    @upload = Image.new
     if params[:tab] == 'images'
+      @upload = Image.new
       render 'edit_images'
     elsif params[:tab] == 'permissions'
       render 'edit_permissions'
+    elsif params[:tab] == 'preview'
+      render 'preview'
+    elsif params[:tab] == 'general'
+      render 'edit' #this action
+    else
+      redirect_to edit_gallery_path(@gallery, tab: 'general')
     end
-    # else render edit
   end
 
   # POST /galleries

@@ -3,3 +3,6 @@
 - added pagination for bootstrap and filter rows for users and galleries
 - added keybindings for hermitage
 - added devise_invitation to let people invite users by email address
+- added user profile page
+- added permission key and photographer to gallery
+- added permissions overview and preview to gallery edit page 

@@ -31,9 +31,9 @@
           - if current_user
             %ul.nav.navbar-nav.navbar-right
               - if admin?
-                %li= link_to "#{current_user.email} (#{current_user.role.translated_name})", user_path(current_user)
+                %li= link_to "#{current_user.email} (#{current_user.role.translated_name})", profile_path
               - else
-                %li= link_to "#{current_user.email}", user_path(current_user)
+                %li= link_to "#{current_user.email}", profile_path
               %li= link_to 'Logout', destroy_user_session_path, method: :delete
               
     .container

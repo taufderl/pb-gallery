@@ -9,6 +9,11 @@ class UsersController < ApplicationController
     @users = @q.result(distinct: true).paginate(page: params[:page], per_page: 30).order(email: :asc)
   end
 
+  # GET /profile
+  def profile
+    @user = current_user    
+  end
+  
   # GET /users/1
   # GET /users/1.json
   def show

@@ -8,8 +8,10 @@ class Ability
       if user.role? 'admin'
         can :manage, :all
       elsif user.role? 'watcher'
-        can :read, Gallery
-        can :read, Image
+        can :read, Gallery, Gallery.all do |gallery|
+          gallery.permitted_users.include? user
+        end
+        can :profile, User
       else
         can :index, :welcome
       end
