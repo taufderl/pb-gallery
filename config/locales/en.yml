@@ -38,6 +38,7 @@ en:
     text: text
     user: written by
     date: date
+    status: status
   user:
     title: Users
     description: Here you can manage the users who can see the galleries.
@@ -45,20 +46,39 @@ en:
     email: email
     first_name: first name
     name: last name
+    full_name: name
+    profile: Profile
+    role: role
+    invite_user: invite user
+    edit_user: edit User
     approved: approved
     created: User was successfully created.
     updated: User was successfully updated.
   gallery:
     title: Galleries
+    name: name
+    owner: owner
+    new_gallery: New gallery
     index:
       description: Please select one of the galleries.
     manage:
       description: Here you can manage the galleries.
+      general: general
+      images: images
+      permissions: permission
+      preview: preview
     edit: Edit Gallery #
     images: images
+    date: date
     permitted_users: users
     created: Gallery was successfully created.
     updated: Gallery was successfully updated.
+  gallery_permission:
+    added_permission: Permission successfully added.
+    empty_key_not_allowed: Empty key not allowed.
+    gallery_already_permitted: Gallery was alread permitted
+    gallery_not_found: No gallery found with this key
+    new: Request permission
   role:
     admin: Admin
     watcher: Watcher
@@ -79,6 +99,7 @@ en:
     back_to_sign_in: back to login page
     sign_up: register
     forgot_password: Forgot your password?
+    edit_account: Edit Account
     delete: delete
     confirmation: Are you sure?
     show: show
@@ -90,6 +111,10 @@ en:
       set_solved: mark as solved
     user:
       profile: profile
+      set_approved: set approved
+      
+  search:
+    all: <all>
   
   devise:
     resend_confirmation_instructions: Resend confirmation instructions

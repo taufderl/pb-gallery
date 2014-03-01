@@ -1,17 +1,22 @@
 %h1= t('user.profile')
 %p
-  %b First name:
+  %b= t('user.first_name')
   = @user.first_name
 %p
-  %b Name:
+  %b= t('user.name')
   = @user.name
 %p
-  %b Email:
+  %b= t('user.email')
   = @user.email
 %p
-  %b Role:
+  %b= t('user.role')
   = @user.role.name
 
-= link_to 'Edit', edit_user_path(@user)
-\|
-= link_to 'Back', users_path
+%h3= t('links.edit_account')
+= link_to t('links.edit_account'), edit_user_registration_path, class: 'btn btn-success'
+  
+%h3= t('devise.cancel_account')
+= button_to t('devise.cancel_account'), registration_path(resource_name), :data => { :confirm => t('links.confirmation') }, :method => :delete, class: 'btn btn-danger'
+ 
+
+
