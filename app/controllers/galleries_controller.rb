@@ -6,21 +6,16 @@ class GalleriesController < ApplicationController
   # GET /galleries.json
   def index
     if admin?
-      render action: :manage
+      # load all galleries for manage overview
+      @q = Gallery.search(params[:q])
+      @galleries = @q.result(distinct: true).paginate(page: params[:page], per_page: 10).order(date: :desc)
+      render 'manage'
+    else
+      # allow user only to see permitted galleries
+      @galleries = current_user.permitted_galleries
     end
-    # allow user only to see permitted galleries
-    @galleries = current_user.permitted_galleries
   end
   
-  # manage does not have a route -> is rendered for admins instead of index
-  def manage
-    if admin?
-      render action: :manage
-    else
-    
-    end
-  end
-
   # GET /galleries/1
   # GET /galleries/1.json
   def show

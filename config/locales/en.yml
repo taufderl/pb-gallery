@@ -83,6 +83,9 @@ en:
     confirmation: Are you sure?
     show: show
     edit: edit
+    search:
+      filter: Search
+      clear_filter: Reset
     issue:
       set_solved: mark as solved
     user:

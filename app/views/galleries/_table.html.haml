@@ -1,23 +1,38 @@
-%table.table.table-bordered.table-condensed.table-hover
-  %tr
-    %th= t('gallery.name')
-    %th= t('gallery.date')
-    %th= t('gallery.owner')
-    %th= t('gallery.images')
-    %th= t('gallery.permitted_users')
-    %th
-
-  - @galleries.each do |gallery|
+.galleries-table
+  %table.table.table-bordered.table-condensed.table-hover
     %tr
-      %td= gallery.name
-      %td= gallery.date
-      %td= gallery.owner.full_name
-      %td
-        %span.badge= gallery.images.count
-      %td
-        %span.badge= gallery.permitted_users.count 
-      %td
-        .btn-group< 
-          = link_to t('links.show'), gallery, class: 'btn btn-sm btn-default'
-          = link_to t('links.edit'), edit_gallery_path(gallery), class: 'btn btn-sm btn-primary'
-          = link_to t('links.delete'), gallery, :method => :delete, :data => { :confirm => t('links.confirmation') }, class: 'btn btn-sm btn-danger'
+      %th= t('gallery.name')
+      %th= t('gallery.date')
+      %th= t('gallery.owner')
+      %th= t('gallery.images')
+      %th= t('gallery.permitted_users')
+      %th
+    %tr.search-row
+      = search_form_for @q, class: 'form-inline' do |f|
+        %th= f.text_field :name_cont, placeholder: t('user.first_name'), class: 'form-control search-input'
+        %th= f.text_field :date_cont, placeholder: t('user.name'), class: 'form-control search-input'
+        %th= f.collection_select :owner_id_eq, User.all, :id, :full_name , {include_blank: t('search.all')}, {class: 'form-control search-input'}
+        %th
+        %th
+        %th
+          %span.btn-group<
+            = f.submit t('links.search.filter'), class: "btn btn-success"
+            = link_to t('links.search.clear_filter'), users_path, class: "btn btn-default"
+  
+  
+    - @galleries.each do |gallery|
+      %tr
+        %td= gallery.name
+        %td= gallery.date
+        %td= gallery.owner.full_name
+        %td
+          %span.badge= gallery.images.count
+        %td
+          %span.badge= gallery.permitted_users.count 
+        %td
+          .btn-group< 
+            = link_to t('links.show'), gallery, class: 'btn btn-sm btn-default'
+            = link_to t('links.edit'), edit_gallery_path(gallery), class: 'btn btn-sm btn-primary'
+            = link_to t('links.delete'), gallery, :method => :delete, :data => { :confirm => t('links.confirmation') }, class: 'btn btn-sm btn-danger'
+  
+  = will_paginate @galleries, renderer: BootstrapPagination::Rails

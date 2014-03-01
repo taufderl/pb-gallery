@@ -11,7 +11,7 @@ class WelcomeController < ApplicationController
         redirect_to galleries_path
       end
     else
-      @page = 'not logged in'
+      # notthing, render normal index page
     end
   end
   

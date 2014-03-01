@@ -1,0 +1,5 @@
+
+01/02/2014
+- added pagination for bootstrap and filter rows for users and galleries
+- added keybindings for hermitage
+- added devise_invitation to let people invite users by email address

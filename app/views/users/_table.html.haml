@@ -6,6 +6,18 @@
       %th Email
       %th Role
       %th
+    %tr.search-row
+      = search_form_for @q, class: 'form-inline' do |f|
+        %th= f.text_field :first_name_cont, placeholder: t('user.first_name'), class: 'form-control search-input'
+        %th= f.text_field :name_cont, placeholder: t('user.name'), class: 'form-control search-input'
+        %th= f.text_field :email_cont, placeholder: t('user.email'), class: 'form-control search-input'
+        %th
+        %th
+          %span.btn-group<
+            = f.submit t('links.search.filter'), class: "btn btn-success"
+            = link_to t('links.search.clear_filter'), users_path, class: "btn btn-default"
+      
+
   
     - @users.each do |user|
       %tr{class: user_row_class(user)}
@@ -19,3 +31,5 @@
             = link_to t('links.edit'), edit_user_path(user), class: 'btn btn-sm btn-primary'
             = link_to t('links.user.set_approved'), user_path(:id => user.id, :user => {:approved => 'true' }), {:method => :patch, class: 'btn btn-sm btn-success'} unless user.approved?
             = link_to t('links.delete'), user, :method => :delete, :data => { :confirm => t('links.confirmation') }, class: 'btn btn-sm btn-danger'
+
+  = will_paginate @users, renderer: BootstrapPagination::Rails

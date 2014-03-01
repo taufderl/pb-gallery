@@ -62,6 +62,7 @@ end
 
 #authentication and permission
 gem 'devise'
+gem 'devise_invitable'
 gem 'cancan'
 
 # file uploads
@@ -76,7 +77,10 @@ gem 'jquery-ui-rails'
 gem 'jquery-fileupload-rails'
 
 # creates the gallery
-gem 'hermitage'
+gem 'hermitage', git: 'git@github.com:danielpuglisi/hermitage.git', branch: :master
 
 # ransack for easy object search and filtering
 gem 'ransack', '~> 1.0.0'
+# pagination
+gem 'will_paginate', '~> 3.0'
+gem 'will_paginate-bootstrap'
