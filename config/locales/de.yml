@@ -135,6 +135,8 @@ de:
   search:
     all: <alle>
   
+  recaptcha:
+    error_wrong: Das eingegebene Captcha war nicht korrekt. 
   
   devise:
     remember_me: Speichern

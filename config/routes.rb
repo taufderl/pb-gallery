@@ -8,7 +8,7 @@ PbGallery::Application.routes.draw do
   
   resources :issues
 
-  devise_for :users, path: '', path_names: {sign_in: 'login', sign_out: 'logout', registration: 'register'}
+  devise_for :users, path: '', controllers: {registrations: 'registrations'}, path_names: {sign_in: 'login', sign_out: 'logout', registration: 'register'}
   
   resources :users
   get 'profile' => 'users#profile'
