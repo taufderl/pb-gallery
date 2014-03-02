@@ -81,7 +81,7 @@ gem 'aws-sdk'
 gem 'haml-rails'
 
 gem 'jquery-ui-rails'
-gem 'jquery-fileupload-rails'
+gem 'jquery-fileupload-rails'#, git: 'git@github.com:kamilpogo/jquery-fileupload-rails.git', branch: :master
 
 # creates the gallery
 gem 'hermitage', git: 'git@github.com:danielpuglisi/hermitage.git', branch: :master
