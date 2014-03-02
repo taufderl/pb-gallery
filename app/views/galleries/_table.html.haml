@@ -24,7 +24,7 @@
       %tr
         %td= gallery.name
         %td= l(gallery.date)
-        %td= gallery.owner.full_name
+        %td= gallery.owner.full_name if gallery.owner
         %td
           %span.badge= gallery.images.count
         %td
