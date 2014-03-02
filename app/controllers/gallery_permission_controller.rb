@@ -15,6 +15,7 @@ class GalleryPermissionController < ApplicationController
             current_user.permitted_galleries << gallery
             current_user.save
             flash[:notice] = t('gallery_permission.added_permission')
+            #sleep(2.0) # sleep to make sure user rights are updated!!
             redirect_to gallery_path(gallery)
           end
         else

@@ -90,6 +90,14 @@ de:
     key: Zugangscode
     created: Die Galerie wurde erfolgreich gespeichert. 
     updated: Die Galerie wurde erfolgreich gespeichert.
+  
+  gallery_permission:
+    new: Galerie hinzufügen
+    send: Zur Galerie
+    added_permission: Zugriffsrechte hinzugefügt. Du hast ab jetzt permanent Zugriff auf diese Galerie.
+    empty_key_not_allowed: Bitte gib einen Zugangscode ein.
+    gallery_already_permitted: Du hast bereits Zugang zu dieser Galerie.
+    gallery_not_found: Es gibt leider keine Galerie mit diesem Zugangscode.
   role:
     admin: Administrator
     watcher: Benutzer

@@ -18,6 +18,8 @@
     .form-group
       = f.label :password_confirmation
       = f.password_field :password_confirmation, class: 'form-control'
+    .recaptcha
+      = recaptcha_tags
     .form-group
       = link_to t("links.sign_in"), new_session_path(resource_name), class: 'btn btn-default'
       = f.submit t('links.sign_up'), class: 'btn btn-primary' 
