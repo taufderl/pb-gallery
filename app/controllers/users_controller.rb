@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @q = User.search(params[:q])
-    @users = @q.result(distinct: true).paginate(page: params[:page], per_page: 30).order(email: :asc)
+    @users = @q.result(distinct: true).paginate(page: params[:page], per_page: 30).order(email: :asc).includes(:role)
   end
 
   # GET /profile

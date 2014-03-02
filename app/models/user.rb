@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
   belongs_to :role
-  has_many :roles
+  
   has_and_belongs_to_many :permitted_galleries, class_name: Gallery, join_table: :gallery_permissions
   has_many :galleries, foreign_key: :owner_id
   

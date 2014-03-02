@@ -9,6 +9,7 @@ class GalleriesController < ApplicationController
       # load all galleries for manage overview
       @q = Gallery.search(params[:q])
       @galleries = @q.result(distinct: true).paginate(page: params[:page], per_page: 10).order(date: :desc)
+      @owners = User.includes(:role).where('roles.name' => 'admin')
       render 'manage'
     else
       # allow user only to see permitted galleries
