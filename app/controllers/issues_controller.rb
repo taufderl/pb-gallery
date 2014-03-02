@@ -28,7 +28,7 @@ class IssuesController < ApplicationController
 
     respond_to do |format|
       if @issue.save
-        format.html { redirect_to issues_path, notice: 'Issue was successfully created.' }
+        format.html { redirect_to issues_path, notice: t('issue.created') }
         format.json { render action: 'index' }
       else
         format.html { render action: 'new' }
@@ -45,7 +45,7 @@ class IssuesController < ApplicationController
     @issue.date = Time.now
     respond_to do |format|
       if @issue.save
-        format.html { redirect_to issues_path, notice: 'Issue was successfully updated.' }
+        format.html { redirect_to issues_path, notice:  t('issue.updated') }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

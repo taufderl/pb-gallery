@@ -53,6 +53,8 @@ de:
     text: Text
     user: geschrieben von
     date: Datum
+    created: Die Meldung wurde erfolgreich angelegt.
+    updated: Die Meldung wurde erfolgreich gespeichert.
   user:
     title: Benutzer
     description: Hier können die angemeldenten Benutzer verwaltet werden.
@@ -76,10 +78,15 @@ de:
       description: Bitte klicke auf eine der Galerien um die Fotos zu betrachten.
     manage:
       description: Hier können die Galerien verwaltet werden.
+      general: Allgemein
+      images: Fotos
+      permissions: Benutzer
+      preview: Preview
     edit: Barbeiten
     images: Fotos
     permitted_users: Benutzer
     photographer: Fotograf
+    photos_by: Fotos von
     key: Zugangscode
     created: Die Galerie wurde erfolgreich gespeichert. 
     updated: Die Galerie wurde erfolgreich gespeichert.

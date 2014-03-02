@@ -16,8 +16,8 @@
         %th
         %th
           %span.btn-group<
-            = f.submit t('links.search.filter'), class: "btn btn-success"
-            = link_to t('links.search.clear_filter'), users_path, class: "btn btn-default"
+            = f.submit t('links.search.filter'), {'data-no-turbolink' => '', class: "btn btn-success"}
+            = link_to t('links.search.clear_filter'), galleries_path, {'data-no-turbolink' => '' ,class: "btn btn-default"}
   
   
     - @galleries.each do |gallery|

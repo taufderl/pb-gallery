@@ -7,12 +7,13 @@
 - added permission key and photographer to gallery
 - added permissions overview and preview to gallery edit page
 - added gallery_permission controller to let users request permissions 
+- images nested in gallery
+- picture upload works for multiple
+- switched to german lang
 
 TODO:
-- images nested route in gallery
-- PICTURE UPLOAD!
-- translations
-- gallery management for admins (-->paperclip)
+
+- paperclip path and more options??
 - menus with hover dropdown
 - use ReCaptcha for signup
 

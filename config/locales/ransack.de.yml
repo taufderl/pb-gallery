@@ -1,0 +1,70 @@
+de:
+  ransack:
+    all: alle
+    and: und
+    any: beliebige
+    asc: aufsteigend
+    attribute: Attribut
+    combinator: Kombinator
+    condition: Bedingung
+    desc: absteigend
+    or: oder
+    predicate: Eigenschaft
+    predicates:
+      blank: ist leer
+      cont: enthält
+      cont_all: enthält alle
+      cont_any: enthält beliebige
+      does_not_match: erfüllt nicht
+      does_not_match_all: alles nicht erfüllt
+      does_not_match_any: erfüllt ein beliebiger/s nicht
+      end: endet mit
+      end_all: enden mit allen
+      end_any: endet mit einem beliebigen
+      eq: entspricht
+      eq_all: entspricht allen
+      eq_any: entspricht einem beliebigen
+      'false': ist nicht wahr
+      gt: größer als
+      gt_all: größer als alle
+      gt_any: größer als ein beliebiger/s
+      gteq: größer oder gleich
+      gteq_all: größer oder gleich alle
+      gteq_any: größer oder gleich als ein beliebiger/s
+      in: in
+      in_all: in allen
+      in_any: ist in einem beliebigen
+      lt: kleiner als
+      lt_all: kleiner als alle
+      lt_any: kleiner als ein beliebiger/s
+      lteq: kleiner oder gleich
+      lteq_all: kleiner oder gleich alle
+      lteq_any: kleiner oder gleich als ein beliebiger/s
+      matches: entspricht
+      matches_all: stimmt mit allen überein
+      matches_any: stimmt überein mit einem beliebigen
+      not_cont: enthält nicht
+      not_cont_all: enthält keine/s
+      not_cont_any: enthält ein beliebiger/s nicht
+      not_end: endet nicht mit
+      not_end_all: enden nicht auf alle
+      not_end_any: endet nicht auf ein beliebiger/s
+      not_eq: nicht gleich
+      not_eq_all: nicht gleich mit allen
+      not_eq_any: ist nicht gleich einem beliebigen
+      not_in: nicht in
+      not_in_all: nicht in allen
+      not_in_any: ist nicht in einem beliebigen
+      not_null: ist nicht leer
+      not_start: beginnt nicht mit
+      not_start_all: starten mit keinem/r
+      not_start_any: startet nicht mit einem beliebigen
+      'null': ist leer
+      present: ist vorhanden
+      start: beginnt mit
+      start_all: starten mit allen
+      start_any: startet mit einem beliebigen
+      'true': ist wahr
+    search: suchen
+    sort: sortieren
+    value: Wert
