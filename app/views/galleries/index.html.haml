@@ -12,7 +12,7 @@
     - @galleries.each do |gallery|
       %tr
         %td= link_to gallery.name, gallery_path(gallery)
-        %td= gallery.date
+        %td= l(gallery.date)
         %td= gallery.owner.full_name
         %td
           %span.badge= gallery.images.count 

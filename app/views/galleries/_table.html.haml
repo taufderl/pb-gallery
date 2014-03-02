@@ -23,7 +23,7 @@
     - @galleries.each do |gallery|
       %tr
         %td= gallery.name
-        %td= gallery.date
+        %td= l(gallery.date)
         %td= gallery.owner.full_name
         %td
           %span.badge= gallery.images.count

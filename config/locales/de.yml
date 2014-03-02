@@ -28,10 +28,13 @@ de:
         first_name: Vorname
         full_name: Name
         password: Passwort
-        
-  time:
+  
+  date:
     formats:
       default: "%d.%m.%Y"
+  time:
+    formats:
+      default: "%d.%m.%Y, %H:%M Uhr"
   site:
     title: Party-Belm Galerie
     welcome:
