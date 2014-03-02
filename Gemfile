@@ -94,5 +94,4 @@ gem 'will_paginate-bootstrap'
 
 gem "recaptcha", :require => "recaptcha/rails"
 
-gem 'piwik_analytics', '~> 1.0.1'
 gem 'picasawebalbums'

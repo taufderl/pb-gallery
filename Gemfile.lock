@@ -133,10 +133,6 @@ GEM
       rack
       rake (>= 0.8.1)
     picasawebalbums (1.4.5)
-    piwik_analytics (1.0.2)
-      actionpack
-      activesupport
-      rails (>= 3.0.0)
     polyamorous (0.6.4)
       activerecord (>= 3.0)
     polyglot (0.3.4)
@@ -238,7 +234,6 @@ DEPENDENCIES
   paperclip
   passenger (~> 4.0.23)
   picasawebalbums
-  piwik_analytics (~> 1.0.1)
   rails (= 4.0.2)
   ransack (~> 1.0.0)
   recaptcha
