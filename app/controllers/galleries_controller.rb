@@ -33,6 +33,8 @@ class GalleriesController < ApplicationController
     when 'images'
       case @gallery.type
       when 'PicasaGallery'
+        repo = PicasaWebAlbums.get_repository(ENV['PICASA_GOOGLE_USER'], ENV['PICASA_GOOGLE_PASSWORD'])
+        @albums = repo.get_all_albums
         render 'edit_picasa'
       when 'SelfHostedGallery'
         @image = Image.new
@@ -98,6 +100,6 @@ class GalleriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def gallery_params
-      params.require(:gallery).permit(:name, :date, :photographer, :key, :type, :published)
+      params.require(:gallery).permit(:name, :date, :photographer, :key, :type, :published, :picasa_webalbum_id)
     end
 end

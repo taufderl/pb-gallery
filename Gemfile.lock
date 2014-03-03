@@ -1,4 +1,11 @@
 GIT
+  remote: git@github.com:alvinsj/PicasaWebAlbums.git
+  revision: b28e9e64594de93f1906e13c4fcee146a3a90154
+  branch: master
+  specs:
+    picasawebalbums (1.4.6)
+
+GIT
   remote: git@github.com:danielpuglisi/hermitage.git
   revision: 036034ec2eb629393a24b31176d7f29f0d348ed8
   branch: master
@@ -132,7 +139,6 @@ GEM
       daemon_controller (>= 1.1.0)
       rack
       rake (>= 0.8.1)
-    picasawebalbums (1.4.5)
     polyamorous (0.6.4)
       activerecord (>= 3.0)
     polyglot (0.3.4)
@@ -233,7 +239,7 @@ DEPENDENCIES
   mysql2
   paperclip
   passenger (~> 4.0.23)
-  picasawebalbums
+  picasawebalbums!
   rails (= 4.0.2)
   ransack (~> 1.0.0)
   recaptcha

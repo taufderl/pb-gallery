@@ -1,0 +1,1 @@
+repo = PicasaWebAlbums.get_repository(ENV['PICASA_GOOGLE_USER'], ENV['PICASA_GOOGLE_PASSWORD'])

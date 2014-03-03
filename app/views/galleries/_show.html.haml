@@ -1,2 +1,6 @@
 .gallery.col-md-10.col-md-offset-1
-  = render_gallery_for @gallery.images, title: 'name', each_slice: 6
+  =@gallery.images.inspect
+  - if @gallery.is_a? SelfHostedGallery
+    = render_gallery_for @gallery.images, title: 'name'
+  - elsif @gallery.is_a? PicasaGallery
+    = render_gallery_for @gallery.images, title: 'file_name', thumbnail: :url, original: :url 
