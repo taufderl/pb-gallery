@@ -4,6 +4,8 @@
       %th= t('gallery.name')
       %th= t('gallery.date')
       %th= t('gallery.owner')
+      %th= t('gallery.type')
+      %th= t('gallery.published')
       %th= t('gallery.images')
       %th= t('gallery.permitted_users')
       %th
@@ -12,6 +14,8 @@
         %th= f.text_field :name_cont, placeholder: t('gallery.name'), class: 'form-control search-input'
         %th= f.text_field :date_cont, placeholder: t('gallery.date'), class: 'form-control search-input'
         %th= f.collection_select :owner_id_eq, @owners, :id, :full_name , {include_blank: t('search.all')}, {class: 'form-control search-input'}
+        %th= f.select :type_eq, (Gallery::TYPES), {}, {class: 'form-control search-input'}
+        %th
         %th
         %th
         %th
@@ -26,13 +30,17 @@
         %td= l(gallery.date)
         %td= gallery.owner.full_name if gallery.owner
         %td
+          %span.badge= gallery.type
+        %td
+          %span.badge= t('gallery.published') if gallery.published?
+        %td
           %span.badge= gallery.images.count
         %td
           %span.badge= gallery.permitted_users.count 
         %td
           .btn-group< 
-            = link_to t('links.show'), gallery, class: 'btn btn-sm btn-default'
+            = link_to t('links.show'), gallery_path(gallery), class: 'btn btn-sm btn-default'
             = link_to t('links.edit'), edit_gallery_path(gallery), class: 'btn btn-sm btn-primary'
-            = link_to t('links.delete'), gallery, :method => :delete, :data => { :confirm => t('links.confirmation') }, class: 'btn btn-sm btn-danger'
+            = link_to t('links.delete'), gallery_path(gallery), :method => :delete, :data => { :confirm => t('links.confirmation') }, class: 'btn btn-sm btn-danger'
   
   = will_paginate @galleries, renderer: BootstrapPagination::Rails

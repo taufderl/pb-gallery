@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140301102416) do
+ActiveRecord::Schema.define(version: 20140302203735) do
 
   create_table "galleries", force: true do |t|
     t.string   "name"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 20140301102416) do
     t.integer  "owner_id"
     t.string   "photographer"
     t.string   "key"
+    t.boolean  "published"
+    t.string   "type"
   end
 
   add_index "galleries", ["key"], name: "index_galleries_on_key", unique: true

@@ -70,6 +70,7 @@ de:
     created: Der Benutzer wurde erfolgreich gespeichert.
     updated: Der Benutzer wurde erfolgreich gespeichert.
   gallery:
+    new_gallery: Neue Galerie
     title: Galerien
     name: Name
     owner: Besitzer
@@ -88,6 +89,8 @@ de:
     photographer: Fotograf
     photos_by: Fotos von
     key: Zugangscode
+    self_hosted: PartyBelm-Galerie
+    picasa: Picasa-Galerie
     created: Die Galerie wurde erfolgreich gespeichert. 
     updated: Die Galerie wurde erfolgreich gespeichert.
   

@@ -15,13 +15,5 @@
       = f.label :date
       = f.date_field :date, class: 'form-control'
     .form-group
-      = f.label :photographer
-      = f.text_field :photographer, class: 'form-control'
-    .form-group
-      = f.label :key
-      = f.text_field :key, class: 'form-control'
-    .form-group
       = link_to t('links.cancel'), galleries_path, class: 'btn btn-default'
       = f.submit t('links.save'), class: 'btn btn-primary'
-
-

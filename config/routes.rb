@@ -14,10 +14,11 @@ PbGallery::Application.routes.draw do
   get 'profile' => 'users#profile'
 
   resources :galleries do
+  #resources :self_hosted_galleries, controller: :galleries do
     resources :images
   end
- 
-
+  #resources :picasa_galleries, controller: :galleries
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

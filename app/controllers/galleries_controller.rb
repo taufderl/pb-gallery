@@ -29,15 +29,20 @@ class GalleriesController < ApplicationController
 
   # GET /galleries/1/edit
   def edit
-    if params[:tab] == 'images'
-      @image = Image.new
-      render 'edit_images'
-      #render 'upload'
-    elsif params[:tab] == 'permissions'
+    case params[:tab]
+    when 'images'
+      case @gallery.type
+      when 'PicasaGallery'
+        render 'edit_picasa'
+      when 'SelfHostedGallery'
+        @image = Image.new
+        render 'edit_images'
+      end
+    when 'permissions'
       render 'edit_permissions'
-    elsif params[:tab] == 'preview'
+    when 'preview'
       render 'preview'
-    elsif params[:tab] == 'general'
+    when 'general'
       render 'edit' #this action
     else
       redirect_to edit_gallery_path(@gallery, tab: 'general')
@@ -93,6 +98,6 @@ class GalleriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def gallery_params
-      params.require(:gallery).permit(:name, :date, :photographer, :key)
+      params.require(:gallery).permit(:name, :date, :photographer, :key, :type, :published)
     end
 end

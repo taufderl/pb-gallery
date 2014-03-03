@@ -1,6 +1,6 @@
 = render partial: "edit_tabs"
 
-= form_for [@gallery, @image], :html => { :multipart => true, :id => "fileupload"  } do |f|
+= form_for [@gallery.becomes(Gallery), @image], :html => { :multipart => true, :id => "fileupload"  } do |f|
   .row.fileupload-buttonbar
     .col-md-8
       %span.btn.btn-success.fileinput-button
