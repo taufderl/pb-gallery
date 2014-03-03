@@ -6,7 +6,7 @@
       %span.btn.btn-success.fileinput-button
         %i.glyphicon.glyphicon-plus
         %span Add files...
-        = f.file_field :file, multiple: true, name: 'image[file]'
+        = f.file_field :file, multiple: true, name: 'image[file]', accept: "image/jpeg"
       %button.btn.btn-primary.start{:type => "submit"}
         %i.glyphicon.glyphicon-upload
         %span Start upload

@@ -127,6 +127,9 @@ de:
     confirmation: Bist du sicher?
     show: Anzeigen
     edit: Bearbeiten
+    gallery:
+      set_published: Veröffentlichen
+      set_unpublished: Veröffentlichung entfernen
     search:
       filter: Suchen
       clear_filter: Zurücksetzen

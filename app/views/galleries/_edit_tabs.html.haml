@@ -1,6 +1,9 @@
 %h1
   = t('gallery.edit')
   = "'#{@gallery.name}'"
+
+    
+         
 .tabs
   %ul.nav.nav-tabs
     %li{class: active_tab_class('general')}= link_to t('gallery.manage.general'), "?tab=general"
@@ -10,3 +13,8 @@
       %li{class: active_tab_class('images')}= link_to t('gallery.manage.picasa'), "?tab=images"
     %li{class: active_tab_class('permissions')}= link_to t('gallery.manage.permissions'), "?tab=permissions"
     %li{class: active_tab_class('preview')}= link_to t('gallery.manage.preview'), "?tab=preview"
+    - if @gallery.published?
+      %li= link_to t('links.gallery.set_unpublished'), gallery_path(:id => @gallery.id, :gallery => {:published => :false }), {:method => :patch, class: 'btn btn-sm btn-warning'}
+    - else
+      %li= link_to t('links.gallery.set_published'), gallery_path(:id => @gallery.id, :gallery => {:published => :true }), {:method => :patch, class: 'btn btn-sm btn-success'}
+ 
