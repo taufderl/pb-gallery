@@ -47,12 +47,13 @@
       .row
         =yield
 
-      .row
-        %footer
-          .footer-content
-            %p.copyright.pull-right
-              &copy; 
-              = Time.now.year
-              Tim auf der Landwehr - 
-              %a{href: "http://taufderl.de"} taufderl.de
-              
+     
+     
+    .navbar.navbar-static-bottom.footer
+      .footer-content
+        %p.copyright.pull-right
+          &copy; 
+          = Time.now.year
+          Tim auf der Landwehr - 
+          %a{href: "http://taufderl.de"} taufderl.de
+          

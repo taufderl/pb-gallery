@@ -94,4 +94,7 @@ gem 'will_paginate-bootstrap'
 
 gem "recaptcha", :require => "recaptcha/rails"
 
-gem 'picasawebalbums', require: 'PicasaWebAlbums', git: 'git@github.com:alvinsj/PicasaWebAlbums.git', branch: :master
+#gem "picasawebalbums", "~> 1.4.6", require: 'PicasaWebAlbums'
+gem "picasawebalbums", git: "git@github.com:mkraft/PicasaWebAlbums.git", branch: :master, require: "PicasaWebAlbums"
+
+

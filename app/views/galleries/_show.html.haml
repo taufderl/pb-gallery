@@ -1,5 +1,4 @@
 .gallery.col-md-10.col-md-offset-1
-  =@gallery.images.inspect
   - if @gallery.is_a? SelfHostedGallery
     = render_gallery_for @gallery.images, title: 'name'
   - elsif @gallery.is_a? PicasaGallery

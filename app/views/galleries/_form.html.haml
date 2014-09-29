@@ -1,11 +1,5 @@
 .gallery-form.col-md-3
-  = form_for @gallery.becomes(Gallery) do |f|
-    - if @gallery.errors.any?
-      #error_explanation
-        %h2= "#{pluralize(@gallery.errors.count, "error")} prohibited this gallery from being saved:"
-        %ul
-          - @gallery.errors.full_messages.each do |msg|
-            %li= msg
+  = form_for @gallery.becomes(Gallery), html: { class: "form form-inline" } do |f|
     .form-group
       = f.label :type
       = f.select :type, Gallery::TYPES, {}, {class: 'form-control'}
